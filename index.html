@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Comic poster</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+    <script src="/js/poster.js"></script>
+    <script src="/js/CursorEvents.js"></script>
+    <script src="/js/infoBanner.js"></script>
+</head>
+
+<body>
+    <a-scene background="color:#8EFFFF">
+
+        
+        <a-plane
+            color="#BF8F00",
+            width="200"
+            height="60"
+            rotation="-90 0 0"
+        ></a-plane>
+
+        <a-entity id="posterContainer" comic-container-poster ></a-entity>
+
+        <a-entity>
+            <a-camera position="0 10 20" wasd-controls="enabled:false" position="0 10 20">
+
+                <a-entity 
+                    id="camera-cursor" 
+                    cursor 
+                    position="0 0 -3"
+                    geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.12"
+                    material="color:black; shader: flat">
+                </a-entity>
+
+                
+                <a-entity 
+                    id="app-title" 
+                    position="0 0.7 -1"
+                    text="font:exo2bold; align:center; width:2.5; color:#000000; 
+                    value:VIRTUAL COMICS STORE!; color:#000551 "
+                >
+                    <a-entity 
+                    id="sub-title" 
+                    position="0 0.45 -1"
+                    text="font:dejavu; align:center; width:2.5; color:#000000; 
+                    value:Get Your Favourite Comics; color:#000551 "
+                    >
+                </a-entity>
+            </a-entity>
+                
+                <a-entity
+                    id="fadeBackground"
+                    geometry="primitive:sphere; radius:2.5"
+                    material="color:black; side:back; shader:flat; transparent:true; 
+                    opacity:0.6"
+                    visible="false"
+                    cursor-listener>
+
+                </a-entity>
+                
+            </a-camera>
+        </a-entity>
+        
+    </a-scene>
+</body>
+
+</html>
